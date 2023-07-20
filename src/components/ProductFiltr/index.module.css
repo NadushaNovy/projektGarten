@@ -1,0 +1,54 @@
+.filtr_sort{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    margin-bottom: 40px;
+    margin-top: 80px;
+}
+.filtr{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+.filtr_price{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.filtr p,.sort p, .sale p{
+    font-size: 20px;
+    font-weight: 600;
+}
+.filtr_price input {
+width: 103px;
+height: 42px;
+border-radius: 7px;
+border: 1px solid #000;
+padding: 10px;
+}
+
+ 
+.sale{
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+.sale input{
+width: 40px;
+height: 40px;
+border-radius: 7px;
+border: 1px solid #000;
+}
+
+.sort{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.sort select{
+width: 219px;
+height: 40px;
+border-radius: 7px;
+border: 1px solid #000;
+padding: 10px;
+}

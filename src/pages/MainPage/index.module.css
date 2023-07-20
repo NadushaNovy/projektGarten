@@ -1,0 +1,31 @@
+.header{
+   
+    display: flex;
+    align-items: center;
+    gap:96px;
+    margin: 40px 0 20px 0;
+}
+.header a{
+border: 2px solid #8B8B8B;
+width: 120px;
+height: 30.97px;
+color: #8B8B8B;
+font-weight: 700;
+font-size: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+text-decoration: none;
+}
+.sale{
+    margin-top: 49px;
+    margin-bottom: 21px;
+    cursor: pointer;
+}
+.sale a{
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: 700;
+    color: black;
+}

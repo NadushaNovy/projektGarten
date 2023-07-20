@@ -1,0 +1,19 @@
+.item{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 58px;
+    text-decoration: none;
+    color: black;
+}
+.item img{
+    width: 318px;
+    height: 350px;
+    object-fit: cover;    
+}
+.item p{
+font-weight: 600;
+font-size: 18px;
+}

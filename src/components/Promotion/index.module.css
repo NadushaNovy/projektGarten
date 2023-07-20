@@ -1,0 +1,48 @@
+.promo{
+margin-top: 76px;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #A1E2EB;
+
+}
+.image{
+background-image: url('./image/bck.png');
+width: 641px;
+height: 550px;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
+}
+
+.info{
+    margin-left: 50px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.info h1{
+font-weight: 700;
+font-size: 80px;
+
+}
+.info h3{
+font-weight: 700;
+font-size: 63px;
+}
+.button{
+margin-top: 85px;    
+padding: 25px 50px;
+color: black;
+background-color: white;
+border-radius: 13px;
+width: 155px;
+height: 82px;
+border: none;
+font-weight: 700;
+font-size: 25px;
+cursor: pointer;
+}

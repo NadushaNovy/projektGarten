@@ -1,0 +1,49 @@
+.header{
+    padding-top:19px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 59px;
+}
+.logo img{
+    width: 72px;
+    height: 72px;
+}
+.header_btn{
+background: #339933;
+border: 2px solid #339933;
+border-radius: 5px;
+width: 65px;
+height: 20px;
+padding: 30px 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.nav_menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+}
+.pages{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:30px
+}
+.header a{
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+}
+.header_btn a{
+    color:#FFFFFF;
+}

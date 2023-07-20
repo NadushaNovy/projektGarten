@@ -1,0 +1,70 @@
+.footer{
+ 
+    margin-top: 45px;
+}
+.media{
+   display: flex;
+  gap: 162px;
+  align-items: center;
+
+}
+.contacts{
+    width: 80%;
+}
+.footer a{
+    text-decoration: none;
+    color: black;
+}
+.soc_media{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 68px;
+}
+.soc_media img{
+    width: 44px;
+    height: 44px;
+}
+.soc_media a{
+font-weight: 600;
+font-size: 15px;
+}
+.inst,.w_a {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+
+.num_tel{
+    font-weight: 600;
+font-size: 70px;
+margin-top: 25px;
+}
+.map{
+    margin-top: 47px;
+}
+.map iframe{
+    height: 525;
+    width: 100%;
+}
+.adress a{
+    text-decoration-line: underline;
+    font-weight: 600;
+font-size: 40px;
+margin-top: 25px;
+}
+.adress p{
+    font-weight: 500;
+font-size: 18px;
+margin-top: 20px;
+}
+.adress h4{
+    font-weight: 600;
+font-size: 24px;
+}
+

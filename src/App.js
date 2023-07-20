@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Layout from './components/Layout';
+import MainPage from './pages/MainPage';
+import CatalogPage from './pages/CatalogPage';
+import AllProductsPage from './pages/AllProductsPage';
+import AllSallesPage from './pages/AllSalesPage';
+import CartPage from './pages/CartPage';
+import NotFoundPage from './pages/NotFoundPage';
+import ProductsByCategoryPage from './pages/ProductsByCategoryPage';
+import SingleProductPage from './pages/SingleProductPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+ <Routes>
+  <Route path='/' element={<Layout/>}>
+    <Route index element ={<MainPage/>}/>
+    <Route path='/catalog' element={<CatalogPage/>}/>
+    <Route path='/products' element={<AllProductsPage/>}/>
+    <Route path='/sales' element={<AllSallesPage/>}/>
+    <Route path='/cart' element={<CartPage/>}/>
+    <Route path='/catalog/:name' element={<ProductsByCategoryPage/>}/> 
+    <Route path='/product/:productId' element={<SingleProductPage/>}/>
+    <Route path='/*' element={<NotFoundPage/>}/>
+    </Route> 
+ </Routes>
     </div>
   );
 }

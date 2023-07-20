@@ -1,0 +1,33 @@
+.cart  > div{
+    width: 824px;
+    height: 247px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top:40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #A7A7A7;
+    
+}
+.cart >div:first-child{
+    border-top: 1px solid #A7A7A7;
+}
+.flex_container{
+    display: flex;
+    gap: 60px;
+}
+.cart_container h2{
+    margin-top:79px ;
+}
+.back{
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    font-size:20px;
+    font-weight: 500;
+    margin:16px 0 34px 620px;
+}
+.arrow_item{
+    width: 15px;
+    height: 15px;
+}

@@ -1,0 +1,29 @@
+.form{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+   
+}
+.form input{
+    width: 473px;
+    height: 75px;
+    border-radius: 25px;
+    background-color: white;
+    color: #6C6C6C;
+    border: none;
+    padding-left: 30px;
+    font-weight: 600;
+font-size: 18px;
+}
+.form button{
+    width: 473px;
+    height: 75px;
+    border-radius: 25px;
+    font-weight: 700;
+font-size: 28.7392px;
+    background: transparent;
+    border: 2.395px solid #FFF;
+    color: white;
+    cursor: pointer;
+}

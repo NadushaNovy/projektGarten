@@ -1,0 +1,77 @@
+.item{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: black;
+}
+.image{
+    width: 319px;
+    height: 276px;
+    position: relative;  
+}
+.image img{
+width: 100%;
+height: 100%;
+object-fit: cover;
+
+}
+.add_btn{
+width: 279px;
+height: 72px;
+border-radius: 21px;
+border: 2px solid #393;
+background: #F1FFF1;
+color: #393;
+font-size: 18px;
+font-weight: 600;
+display: flex;
+align-items: center;
+justify-content: center;
+position: absolute;
+left: 20px;
+bottom: 0;
+cursor: pointer;
+visibility: hidden;
+
+}
+.item:hover .add_btn{
+    visibility: visible;
+}
+.price_with_discount{
+    display: flex;
+    align-items: first baseline;
+    gap:70px;
+
+}
+
+.price{
+    display: flex;
+    align-items: first baseline;
+    margin: 20px 0 10px 0;
+    font-size: 30px;
+    font-weight: 600;
+}
+.price p:first-child{
+    font-size: 30px;
+    
+}
+.price p:nth-child(2){
+    font-size: 20px;
+}
+.old_price{
+color: #8B8B8B;
+font-size: 20px;
+font-weight: 500;
+text-decoration: line-through;
+}
+.sale_value{
+color: #FF32A1;
+font-size: 20px;
+font-weight: 600;
+}
+
+.name{
+color: #3A3A3A;
+font-size: 16px;
+font-weight: 500;
+}
