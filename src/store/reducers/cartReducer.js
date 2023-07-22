@@ -56,6 +56,7 @@ return state.filter(({id})=>id !==action.payload)
             } 
             else if(action.type === SEND_ORDER){
                 console.log(action.payload)
+                return [];
             }     
     else{
         return state

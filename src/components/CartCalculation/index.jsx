@@ -5,12 +5,13 @@ import { sendOrder } from '../../async_actions/request';
 
 
 export default function CartCalculation({cart_state}) {
-    // const dispatch = useDispatch();
-    // const send_order = e=>{
-    //     e.preventDefoult();
-    //     const {phone_number} = e.target;
-    //     dispatch(sendOrder(phone_number.value))
-    // }
+    const dispatch = useDispatch();
+    const send_order = e=>{
+      e.preventDefault();
+        dispatch(sendOrder({message:'order send'}))
+        e.target.reset()
+
+    }
 const totalPrice = cart_state.reduce((acc,{price,discont_price,count})=> acc + count* (discont_price || price),0)
 
   return (
@@ -25,7 +26,7 @@ const totalPrice = cart_state.reduce((acc,{price,discont_price,count})=> acc + c
              <p>$</p>
             </div>
         </div>
-        <form className={s.form}>
+        <form className={s.form} onSubmit={send_order}>
             <input type="text" name="phone_number" placeholder='Phone number' />
             <button>Order</button>
         </form>

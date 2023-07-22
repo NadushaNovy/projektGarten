@@ -82,13 +82,20 @@ export const sendOrder = body =>{
   }
 }
 
- export const getDiscount = async (data = {}) => {
-  const response = await fetch('http://localhost:3333/sale/send', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  });
-  return response.json(); 
+
+export const getDiscount = body =>{
+ 
+      fetch('http://localhost:3333/sale/send',{
+         method:'POST',
+         body:JSON.stringify(body),
+         headers: { 
+          'Content-Type': 'application/json;charset=utf-8' 
+        }
+      })
+      .then(res => res.json())
+      .then(json =>(console.log(json)))
+  
 }
+  
+
+ 
