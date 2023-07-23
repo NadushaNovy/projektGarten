@@ -7,6 +7,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 
 export default function Header() {
+    const checkClass = ({isActive})=> isActive ? s.active : '';
   return (
     <div className={['wrapper',  s.header].join(' ')}>
 <div className={s.logo}>
@@ -18,9 +19,9 @@ export default function Header() {
 </div>
 <div className={s.nav_menu}>
     <div className={s.pages}>
-    <NavLink to='/'>Main Page</NavLink>
- <NavLink to='/products'>All products</NavLink>
- <NavLink to='/sales'>All sales</NavLink>
+    <NavLink to='/' className={checkClass}>Main Page</NavLink>
+ <NavLink to='/products' className={checkClass}>All products</NavLink>
+ <NavLink to='/sales' className={checkClass}>All sales</NavLink>
     </div>
  
 <div className={s.cart}>

@@ -9,10 +9,9 @@ import { allProductsWithDiscountAction, filterByPriceAction, sortProductsAction 
 
 export default function AllProductsPage() {
   const dispatch = useDispatch();
-  // const [checked,setChecked] = useState(false);
-  // const handleChange = () => setChecked(!checked);
+  const [checked,setChecked] = useState(false);
+  const handleChange = () => setChecked(!checked);
 
- const checked = false
  useEffect(()=>{
 dispatch(getAllProducts)
     },[]);
@@ -42,6 +41,7 @@ dispatch(getAllProducts)
        filterByPrice={filterByPrice}
        sort = {sort}
        sale = {false}
+       handleChange = {handleChange}
        />
       <ProductsContainer products = {all_products_state}/>
 

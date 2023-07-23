@@ -4,7 +4,7 @@ import s from "./index.module.css";
 
 
 
-export default function ProductFiltr({filterBySale,sort,filterByPrice,sale}) {
+export default function ProductFiltr({filterBySale,sort,filterByPrice,sale,handleChange}) {
   
 
  
@@ -23,7 +23,6 @@ export default function ProductFiltr({filterBySale,sort,filterByPrice,sale}) {
           onChange={filterByPrice}
      
 />
-
               
           </form>
          
@@ -33,14 +32,15 @@ export default function ProductFiltr({filterBySale,sort,filterByPrice,sale}) {
           <div className={s.sale}>
           <p>Discounted items</p>
           <input type="checkbox" name="checkbox"
+          onClick={handleChange}
           onChange={filterBySale} />
         </div>
         }
         
         <div className={s.sort}>
           <p>Sorted</p>
-          <select  name="name" onChange={sort}>
-            <option value='default'>by default</option>
+          <select  defaultValue={{value:'default'}} onChange={sort}>
+            <option value='default' hidden>by default</option>
             <option value='1'>min price</option>
             <option value='2'>max price</option>
             <option value='3'>by name</option>
