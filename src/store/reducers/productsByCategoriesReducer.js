@@ -5,82 +5,90 @@ const PRODUCTS_SORT = '[PRODUCTS_BY_CATEGORY_PAGE] PRODUCTS_SORT';
 const FILTER_BY_PRICE = '[PRODUCTS_BY_CATEGORY_PAGE] FILTER_BY_PRICE'
 
 
-const realPrice = ({price,discont_price}) => {
-    if(discont_price === null){
+const realPrice = ({ price, discont_price }) => {
+    if (discont_price === null) {
         return price
-    } else{
+    } else {
         return discont_price
     }
 }
 
 
-export const loadProductsByCategoriesAction = (payload)=>({
-    type:LOAD_PRODUCTS_BY_CATEGORIES,payload
+export const loadProductsByCategoryAction = (payload) => ({
+    type: LOAD_PRODUCTS_BY_CATEGORIES, payload
 })
-export const productsWithDiscountAction = (payload)=>({
-    type:PRODUCTS_WITH_DISCOUNT,payload
+export const productsWithDiscountAction = (payload) => ({
+    type: PRODUCTS_WITH_DISCOUNT, payload
 });
-export const sortProductsAction =(payload) =>( {type: PRODUCTS_SORT, payload});
+export const sortProductsAction = (payload) => ({ type: PRODUCTS_SORT, payload });
 
 export const filterByPriceAction = (payload) => ({
-    type: FILTER_BY_PRICE,payload
+    type: FILTER_BY_PRICE, payload
 });
 
 
 
-export const productByCategoriesReducer=(state=[],action)=>{
-    if(action.type === LOAD_PRODUCTS_BY_CATEGORIES){
+export const productByCategoriesReducer = (state = { category: { title: '' }, data: [] }, action) => {
+    if (action.type === LOAD_PRODUCTS_BY_CATEGORIES) {
         return action.payload
     }
-    else if(action.type === PRODUCTS_WITH_DISCOUNT){
-        if (action.payload){
-            return state.map(el =>{
-                if(el.discont_price !==null){
+    else if (action.type === PRODUCTS_WITH_DISCOUNT) {
+        if (action.payload) {
+            state.data = state.data.map(el => {
+                if (el.discont_price !== null) {
                     el.show_by_discount = true
-                }else{
-                 el.show_by_discount = false
+                } else {
+                    el.show_by_discount = false
                 }
                 return el
-            })
-        } else {
-            return state.map(el=>{
-                el.show_by_discount = true
-                return el
-            }) 
-        }
-    }
-
-else if(action.type === PRODUCTS_SORT){
-    if(+action.payload === 1){ 
-        state.sort((a,b)=>
-              realPrice(a)-realPrice(b)
-        )  
-     
-        } else if(+action.payload === 2){
-           
-                state.sort((a,b)=> realPrice(b) - realPrice(a)); 
-            }
-        
-        
-        else  if(+action.payload === 3){ 
-           state.sort((a,b)=> a.title.localeCompare(b.title)); 
+            });
        
-    }
-    return [...state]
-
-}  else if (action.type === FILTER_BY_PRICE) {
-    const {min_value,max_value} = action.payload;
-    return state.map(el => {
-        if(el.price >= min_value && el.price <=max_value)  {
-           el.show_by_price = true;
-        }else{
-           el.show_by_price = false;
+            return state;
+            
         }
-        return el
-       })
-    
-        } 
-    else{
+
+        state.data = state.data.map(el => {
+            el.show_by_discount = true
+            return el
+        })
+        return state;
+
+    }
+
+    else if (action.type === PRODUCTS_SORT) {
+        if (+action.payload === 1) {
+            state.data.sort((a, b) =>
+                realPrice(a) - realPrice(b)
+            )
+
+        } else if (+action.payload === 2) {
+
+            state.data.sort((a, b) => realPrice(b) - realPrice(a));
+        }
+
+
+        else if (+action.payload === 3) {
+            state.data.sort((a, b) => a.title.localeCompare(b.title));
+
+        }
+        return state
+
+    } else if (action.type === FILTER_BY_PRICE) {
+        const { min_value, max_value } = action.payload;
+        state.data = state.data.map(el => {
+            
+            if (el.price >= min_value && el.price <= max_value) {
+                el.show_by_price = true;
+            } else {
+                el.show_by_price = false;
+            }
+            return el
+        })
+       console.log(state.data)
+        return state;
+
+    }
+    else {
         return state
     }
 }

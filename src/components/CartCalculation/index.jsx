@@ -22,7 +22,7 @@ const totalPrice = cart_state.reduce((acc,{price,discont_price,count})=> acc + c
         <div className={s.total_price}>
             <p>Total</p>
             <div>
-            <p>{totalPrice}</p>
+            <p>{totalPrice.toFixed(2)}</p>
              <p>$</p>
             </div>
         </div>

@@ -4,7 +4,7 @@ import ProductItem from "../ProductItem";
 
 
 export default function ProductsContainer({ products }) {
-
+console.log({pp:products})
   return (
     <div className={['wraper', s.container].join(' ')}>
       
