@@ -1,36 +1,33 @@
-import React from 'react';
-import s from './index.module.css';
-import { useSelector } from 'react-redux';
-import{SlArrowRight} from 'react-icons/sl'
-import CartItem from '../CartItem';
-import CartCalculation from '../CartCalculation';
-import { Link, useNavigate } from 'react-router-dom';
-
+import React from "react";
+import s from "./index.module.css";
+import { useSelector } from "react-redux";
+import { SlArrowRight } from "react-icons/sl";
+import CartItem from "../CartItem";
+import CartCalculation from "../CartCalculation";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function CartContainer() {
-    const cart_state = useSelector(state=>state.cart);
-    const navigate = useNavigate();
+  const cart_state = useSelector((state) => state.cart);
+  const navigate = useNavigate();
   return (
-    <div className={['wrapper', s.cart_container ].join(' ')}>
+    <div className={["wrapper", s.cart_container].join(" ")}>
       <h2>Shopping cart</h2>
-      <Link 
-      className={s.back}
-      onClick={()=> navigate(-1)}
-      >
-      <p>Back to the store</p> 
-      <SlArrowRight className={s.arrow_item} />
+      <Link className={s.back} onClick={() => navigate(-1)}>
+        <p>Back to the store</p>
+        <SlArrowRight className={s.arrow_item} />
       </Link>
       <div className={s.flex_container}>
         <div className={s.cart}>
-        {
-            cart_state.map(el=><CartItem key={el.id} {...el}/>)
-        }
+          {cart_state.map((el) => (
+            <CartItem key={el.id} {...el} />
+          ))}
         </div>
-      {
-     
-        cart_state.length === 0 ? '' :    <CartCalculation cart_state={cart_state}/>
-      }
+        {cart_state.length === 0 ? (
+          ""
+        ) : (
+          <CartCalculation cart_state={cart_state} />
+        )}
       </div>
     </div>
-  )
+  );
 }

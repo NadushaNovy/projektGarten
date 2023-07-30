@@ -14,18 +14,18 @@ import SingleProductPage from './pages/SingleProductPage';
 function App() {
   return (
     <div>
- <Routes>
-  <Route path='/' element={<Layout/>}>
-    <Route index element ={<MainPage/>}/>
-    <Route path='/catalog' element={<CatalogPage/>}/>
-    <Route path='/products' element={<AllProductsPage/>}/>
-    <Route path='/sales' element={<AllSallesPage/>}/>
-    <Route path='/cart' element={<CartPage/>}/>
-    <Route path='/catalog/:name' element={<ProductsByCategoryPage/>}/> 
-    <Route path='/product/:productId' element={<SingleProductPage/>}/>
-    <Route path='/*' element={<NotFoundPage/>}/>
-    </Route> 
- </Routes>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<MainPage />} />
+          <Route path='/catalog' element={<CatalogPage />} />
+          <Route path='/products' element={<AllProductsPage />} />
+          <Route path='/sales' element={<AllSallesPage />} />
+          <Route path='/cart' element={<CartPage />} />
+          <Route path='/catalog/:name' element={<ProductsByCategoryPage />} />
+          <Route path='/product/:productId' element={<SingleProductPage />} />
+          <Route path='/*' element={<NotFoundPage />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
