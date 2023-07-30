@@ -19,7 +19,7 @@ export const getProductsByCategories =  (element) =>{
   .then(res =>  res.json())
   .then(json => { 
    const data =  json.data.map(el =>({
-    ...el, show_item:true
+    ...el, show_by_price:true, show_by_discount:true
  }));
 
 json.data = data;
@@ -42,7 +42,7 @@ dispatch(loadNameOfCategoryAction(json.category))
     const resp = await fetch(link);
     const data = await resp.json();
     const new_data = data.map(el=>({
-      ...el,show_item:true
+      ...el,show_by_price:true, show_by_discount:true
     }));
     dispatch(loadAllProductsAction(new_data))
 }
@@ -53,7 +53,7 @@ export const getSalesProducts =async (dispatch)=>{
   const new_data = data
   .filter(el=>el.discont_price !==null)
   .map(el=>({
-    ...el,show_item:true
+    ...el,show_by_price:true, show_by_discount:true
   }));
   dispatch(loadProductsAction(new_data))
 }
@@ -79,6 +79,7 @@ export const sendOrder = body =>{
       })
       .then(res => res.json())
       .then(json =>dispatch(sendOrderAction(json)))
+      .then(alert('order is accepted'))
   }
 }
 
@@ -93,7 +94,7 @@ export const getDiscount = body =>{
         }
       })
       .then(res => res.json())
-      .then(json =>(console.log(json)))
+      .then(alert('your discount is 5%'))
   
 }
   

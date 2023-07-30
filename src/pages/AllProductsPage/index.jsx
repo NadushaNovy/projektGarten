@@ -24,6 +24,7 @@ dispatch(getAllProducts)
     const filterByPrice = (e)=>{
       e.preventDefault();
       const {min_price,max_price} = e.target.parentElement;
+      
       const min_value = min_price.value || 0;
       const max_value = max_price.value ||  Infinity;
       dispatch(filterByPriceAction({min_value,max_value}))

@@ -16,18 +16,18 @@ export default function ProductFiltr({filterBySale,sort,filterByPrice,sale,handl
           <form className={s.filtr_price}
           >
            
-            <input type="number" placeholder="from" name="min_price" 
+
+           <input type="number" placeholder="from" name="min_price" 
             onChange={filterByPrice}
           />
           <input type="number" placeholder="to" name="max_price" 
           onChange={filterByPrice}
      
 />
-              
+
           </form>
          
-        </div>
-        {
+          {
           sale ? '' :
           <div className={s.sale}>
           <p>Discounted items</p>
@@ -36,6 +36,8 @@ export default function ProductFiltr({filterBySale,sort,filterByPrice,sale,handl
           onChange={filterBySale} />
         </div>
         }
+        </div>
+        
         
         <div className={s.sort}>
           <p>Sorted</p>

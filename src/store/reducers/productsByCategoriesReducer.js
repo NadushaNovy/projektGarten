@@ -36,24 +36,20 @@ export const productByCategoriesReducer=(state=[],action)=>{
         if (action.payload){
             return state.map(el =>{
                 if(el.discont_price !==null){
-                    el.show_item = true
+                    el.show_by_discount = true
                 }else{
-                 el.show_item = false
+                 el.show_by_discount = false
                 }
                 return el
             })
         } else {
             return state.map(el=>{
-                el.show_item = true
+                el.show_by_discount = true
                 return el
             }) 
         }
-//  const target = state.data.filter(({discont_price})=>discont_price !== null);
-//  state.data = target;
-//  console.log(state.data)
-// return state
     }
-// 
+
 else if(action.type === PRODUCTS_SORT){
     if(+action.payload === 1){ 
         state.sort((a,b)=>
@@ -76,9 +72,9 @@ else if(action.type === PRODUCTS_SORT){
     const {min_value,max_value} = action.payload;
     return state.map(el => {
         if(el.price >= min_value && el.price <=max_value)  {
-           el.show_item = true;
+           el.show_by_price = true;
         }else{
-           el.show_item = false;
+           el.show_by_price = false;
         }
         return el
        })

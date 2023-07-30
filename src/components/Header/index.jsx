@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './images/logo.png';
 import cart from './images/cart.jpg'
 import s from './index.module.css';
 import { Link, NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 
 export default function Header() {
     const checkClass = ({isActive})=> isActive ? s.active : '';
+    const productsInCart = useSelector(state=>state.cart)
+    const counter = productsInCart.reduce((acc,{count})=>acc + count,0)
+   
   return (
-    <div className={['wrapper',  s.header].join(' ')}>
+    <div className={s.header}
+    // {['wrapper',  s.header].join(' ')}
+    >
 <div className={s.logo}>
     <img src={logo} alt="" />
     <div className={s.header_btn}>
@@ -27,6 +33,10 @@ export default function Header() {
 <div className={s.cart}>
     <Link to='/cart'>
     <img src={cart} alt="" />
+    {
+        counter>0 ? <span>{counter}</span> : ''
+    }
+    
     </Link>
 </div>
 

@@ -13,7 +13,7 @@ export default function CartContainer() {
   return (
     <div className={['wrapper', s.cart_container ].join(' ')}>
       <h2>Shopping cart</h2>
-      <Link to='/' className={s.back}>
+      <Link to='/products' className={s.back}>
       <p>Back to the store</p> 
       <SlArrowRight className={s.arrow_item} />
       </Link>
