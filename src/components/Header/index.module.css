@@ -6,6 +6,7 @@
     position: sticky;
     top: 0;
     background-color: #FFFFFF;
+    z-index: 999;
     
 }
 .logo{
@@ -52,7 +53,7 @@ justify-content: center;
     color:#FFFFFF;
 }
 .header a.active {
-    color: gray;
+    color: #339933;
 }
 .cart{
     position: relative;

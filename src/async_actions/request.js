@@ -2,20 +2,22 @@ import { loadAllProductsAction } from "../store/reducers/allProductsReducer";
 import { sendOrderAction } from "../store/reducers/cartReducer";
 import { loadCategoriesAction } from "../store/reducers/categoriesReducer";
 import { loadNameOfCategoryAction } from "../store/reducers/nameOfCategoryReducer";
-import { loadProductsByCategoriesAction } from "../store/reducers/productsByCategoriesReducer";
+import { loadProductsByCategoryAction } from "../store/reducers/productsByCategoryReducer";
 import { loadProductsAction } from "../store/reducers/productsWithDiscountReducer";
 import { loadSingleProductAction } from "../store/reducers/singleProductReducer";
+const host_link = 'http://localhost:3333'
 
 export const getCategories = async (dispatch)=>{
-    const link = 'http://localhost:3333/categories/all';
+    const link = `${host_link}/categories/all`;
+    // 'http://localhost:3333/categories/all';
     const resp = await fetch(link);
     const data = await resp.json();
     dispatch(loadCategoriesAction(data))
 }
 
-export const getProductsByCategories =  (element) =>{
+export const getProductsByCategory =  (element) =>{
     return dispatch=>
-    fetch(`http://localhost:3333/categories/${element}`)
+    fetch(`${host_link}/categories/${element}`)
   .then(res =>  res.json())
   .then(json => { 
    const data =  json.data.map(el =>({
@@ -24,13 +26,13 @@ export const getProductsByCategories =  (element) =>{
 
 json.data = data;
 
-dispatch(loadProductsByCategoriesAction(json.data))
+dispatch(loadProductsByCategoryAction(json.data))
   })
 
   }
   export const getNameOfCategory =  (element) =>{
     return dispatch=>
-    fetch(`http://localhost:3333/categories/${element}`)
+    fetch(`${host_link}/categories/${element}`)
   .then(res =>  res.json())
   .then(json =>
 dispatch(loadNameOfCategoryAction(json.category))
@@ -38,7 +40,7 @@ dispatch(loadNameOfCategoryAction(json.category))
 
   }
   export const getAllProducts =async (dispatch)=>{
-    const link = 'http://localhost:3333/products/all';
+    const link = `${host_link}/products/all`;
     const resp = await fetch(link);
     const data = await resp.json();
     const new_data = data.map(el=>({
@@ -47,7 +49,7 @@ dispatch(loadNameOfCategoryAction(json.category))
     dispatch(loadAllProductsAction(new_data))
 }
 export const getSalesProducts =async (dispatch)=>{
-  const link = 'http://localhost:3333/products/all';
+  const link = `${host_link}/products/all`;
   const resp = await fetch(link);
   const data = await resp.json();
   const new_data = data
@@ -60,7 +62,7 @@ export const getSalesProducts =async (dispatch)=>{
 
 export const getSingleProduct =  (element) =>{
   return dispatch=>
-  fetch(`http://localhost:3333/products/${element}`)
+  fetch(`${host_link}/products/${element}`)
 .then(res =>  res.json())
 .then(json => 
 dispatch(loadSingleProductAction(json))
@@ -70,7 +72,7 @@ dispatch(loadSingleProductAction(json))
 
 export const sendOrder = body =>{
   return dispatch=>{
-      fetch('http://localhost:3333/order/send',{
+      fetch(`${host_link}/order/send`,{
          method:'POST',
          body:JSON.stringify(body),
          headers: { 
@@ -86,7 +88,7 @@ export const sendOrder = body =>{
 
 export const getDiscount = body =>{
  
-      fetch('http://localhost:3333/sale/send',{
+      fetch(`${host_link}/sale/send`,{
          method:'POST',
          body:JSON.stringify(body),
          headers: { 

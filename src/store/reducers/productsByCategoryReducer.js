@@ -1,4 +1,4 @@
-const LOAD_PRODUCTS_BY_CATEGORIES = '[PRODUCTS_BY_CATEGORY_PAGE] LOAD_PRODUCTS_BY_CATEGORIES';
+const LOAD_PRODUCTS_BY_CATEGORY = '[PRODUCTS_BY_CATEGORY_PAGE] LOAD_PRODUCTS_BY_CATEGORY';
 
 const PRODUCTS_WITH_DISCOUNT = '[PRODUCTS_BY_CATEGORY_PAGE]PRODUCTS_WITH_DISCOUNT';
 const PRODUCTS_SORT = '[PRODUCTS_BY_CATEGORY_PAGE] PRODUCTS_SORT';
@@ -14,8 +14,8 @@ const realPrice = ({price,discont_price}) => {
 }
 
 
-export const loadProductsByCategoriesAction = (payload)=>({
-    type:LOAD_PRODUCTS_BY_CATEGORIES,payload
+export const loadProductsByCategoryAction = (payload)=>({
+    type:LOAD_PRODUCTS_BY_CATEGORY,payload
 })
 export const productsWithDiscountAction = (payload)=>({
     type:PRODUCTS_WITH_DISCOUNT,payload
@@ -28,8 +28,8 @@ export const filterByPriceAction = (payload) => ({
 
 
 
-export const productByCategoriesReducer=(state=[],action)=>{
-    if(action.type === LOAD_PRODUCTS_BY_CATEGORIES){
+export const productsByCategoryReducer=(state=[],action)=>{
+    if(action.type === LOAD_PRODUCTS_BY_CATEGORY){
         return action.payload
     }
     else if(action.type === PRODUCTS_WITH_DISCOUNT){

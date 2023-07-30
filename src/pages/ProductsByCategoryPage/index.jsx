@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
-import { getNameOfCategory, getProductsByCategories } from '../../async_actions/request';
+import { getNameOfCategory, getProductsByCategory } from '../../async_actions/request';
 import ProductsContainer from '../../components/ProductsContainer';
 import s from "./index.module.css";
 import ProductFiltr from '../../components/ProductFiltr';
-import { productsWithDiscountAction,sortProductsAction,filterByPriceAction } from '../../store/reducers/productsByCategoriesReducer';
+import { productsWithDiscountAction,sortProductsAction,filterByPriceAction } from '../../store/reducers/productsByCategoryReducer';
 
 
 
@@ -13,10 +13,10 @@ export default function ProductsByCategoryPage() {
     const {name} = useParams();
     const dispatch = useDispatch();
     useEffect(()=>{
-dispatch(getProductsByCategories(name))
+dispatch(getProductsByCategory(name))
 dispatch(getNameOfCategory(name))
     },[])
-    const products_state = useSelector(state=>state.productsByCategories)
+    const products_state = useSelector(state=>state.productsByCategory)
     const title = useSelector(state =>state.nameOfCategory.title)
     
      const filterBySale = (e)=>dispatch(productsWithDiscountAction(e.target.checked))
